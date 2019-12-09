@@ -1,8 +1,10 @@
 h1 {
   font-family: 'Trade Winds', cursive;
-  font-size: 320%;
+  font-size: 370%;
   color: #111111;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 #option-buttons {
@@ -17,7 +19,7 @@ h1 {
   color: #111111;
   font-size: 130%;
   text-align: center;
-  padding-bottom: 35px;
+  padding-bottom: 10px;
 }
 
 body {
@@ -40,7 +42,7 @@ body {
   box-shadow: 0 0 10px 2px #001f3f;
 }
 
-.btn-grid {
+.btnGrid {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 10px;
@@ -56,4 +58,8 @@ body {
   background-color: #001f3f;
   padding: 5px 10px;
   color: #FFFFFF
+}
+
+div {
+  padding: 30px 30px 30px 30px;
 }
