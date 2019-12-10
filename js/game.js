@@ -89,20 +89,35 @@ function handler1() {
   } else if (button1.textContent === "Take me to the most valuable artifact in the dungeon") {
     hideAll();
     message = m24;
+    document.getElementById("portalsound").play();
     writeResults();
   } else if (button1.textContent === "Run for it") {
     hideAll();
     message = m21;
+    document.getElementById("lockpicksound").pause();
+    document.getElementById("runsound").play();
+    setTimeout(function(){
+      document.getElementById("thundersound").play();
+    }, 7000)
     writeResults();
   } else if (button1.textContent === "Sneak through the library") {
     showAll();
     button1.textContent = "Run for it"
     button2.textContent = "Sneak out (30% Chance of Success)"
     message = m17;
+    document.getElementById("tickingsound").pause();
+    document.getElementById("lockpicksound").play();
     writeResults();
   } else if (button1.textContent === "Choose Pink Frosted Sprinkled Doughnut") {
     hideAll();
     message = m12;
+    document.getElementById("openbackpacksound").pause();
+    setTimeout(function(){
+      document.getElementById("explosionfarsound").play();
+    }, 6000)
+    setTimeout(function(){
+      document.getElementById("explosionclosesound").play();
+    }, 7500)
     writeResults();
   } else if (chapter == 2) {
         console.log("chapter2button1clicked");
@@ -156,10 +171,16 @@ function handler2() {
       if (sneakChance <= 6) {
     message = m22;
     hideAll();
+    document.getElementById("lockpicksound").pause();
+    document.getElementById("booksound").play();
     writeResults();
   } else {
     hideAll();
     message = m23;
+    document.getElementById("lockpicksound").pause();
+    setTimeout(function(){
+    document.getElementById("robotalarmsound").play();
+  }, 7000)
     writeResults();
       }
 //place option2
@@ -199,20 +220,28 @@ function handler2() {
           button4.style.visibility = "hidden";
           message = m16;
           chapter = 3;
+          document.getElementById("stairsound").pause();
+          document.getElementById("tickingsound").play();
           writeResults();
     } else if (button2.textContent === "Approach the curved desk") {
       showAll();
       button1.textContent = "Take me to the most valuable artifact in the dungeon"
       button2.textContent = "Take me to the most powerful artifact in the dungeon"
       message = m18;
+      document.getElementById("tickingsound").pause();
       writeResults();
     } else if (button2.textContent === "Take me to the most powerful artifact in the dungeon") {
       hideAll();
       message = m25;
+      setTimeout(function(){
+      document.getElementById("robotalarmsound").play();
+    }, 7000)
       writeResults();
     } else if (button2.textContent === "Choose Apple") {
       hideAll();
       message = m13;
+      document.getElementById("openbackpacksound").pause();
+      document.getElementById("heartbeatsound").play();
       writeResults();
     }  else if (button2.textContent = "Offer Gold (Greed)") {
       message = m6;
@@ -240,6 +269,9 @@ if (chapter == 1) {
 } else if (button3.textContent === "Grab torch") {
   hideAll();
   message = m19;
+  document.getElementById("stairsound").pause();
+  document.getElementById("flaresound").play();
+  document.getElementById("gearsound").play();
   writeResults();
 } else if (button3.textContent === "Offer Food (Gluttony)") {
   button1.textContent = "Choose Pink Frosted Sprinkled Doughnut"
@@ -247,6 +279,8 @@ if (chapter == 1) {
   button3.style.visibility = "hidden";
   button4.style.visibility = "hidden";
   message = m11;
+  document.getElementById("knifesound").pause();
+  document.getElementById("openbackpacksound").play();
   writeResults();
 } else if (chapter == 2) {
       console.log("chapter2button3clicked");
@@ -261,6 +295,10 @@ if (chapter == 1) {
     } else if (button3.textContent === "Go through the hole in the wall") {
       hideAll();
       message = m14;
+      document.getElementById("swordsound").pause();
+      setTimeout(function(){
+        document.getElementById("crowdsound").play();
+      }, 6000)
       writeResults();
     } else if (chapter == 3) {
         console.log("chapter3button3clicked");
@@ -293,6 +331,8 @@ function handler4() {
   } else if (button4.textContent === "Turn around") {
     hideAll();
     message = m15;
+    document.getElementById("swordsound").pause();
+    document.getElementById("creepywindsound").play();
     writeResults();
   } else if (button4.textContent === "Offer Dog Toy (???)") {
     hideAll();
