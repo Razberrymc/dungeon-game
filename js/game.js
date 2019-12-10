@@ -1,3 +1,7 @@
+window.onload = function() {
+    document.getElementById("nightsound").play();
+}
+
 let chapter = 1;
 let m1 = "After travelling for weeks, you arrive at a seemingly abandonned castle illuminated by moonlight. As you seek refuge inside, torches magically set themselves ablaze. You can see a staircase made of obsidian leading into the depths of the castle. At last! The entrance to the dungeon of legend! The stories you heard as a child were true. The only thing standing between you and untold riches is the willpower to take the dive."
 
@@ -37,7 +41,7 @@ let m18 = "You approach the curved table. Upon closer inspection, you notice tha
 
 let m19 = "You reach for the torch and attempt to pull it off the wall. You hear gears begin to turn, as the floor collapses from underneath you. You fall for a few seconds before a large spike impales you. That was fast......YOU DIED"
 
-let m20 = "You look inside the backpack and find a blue orb nestled in the skeletons hands. It looks priceless! You reach in with both hands to pick it up. However, as soon as you touch it your vision tints your environment to a light blue and you can no longer move. The only thing you can do is look around the room without moving your head. As you look around the room blue spectral spirits erupt into laughter. 'I told you he was gonna touch it!' It looks like you figured out why there are so many skeletons in this area......YOU WILL DIE SOON"
+let m20 = "You look inside the backpack and find a blue orb nestled in the skeletons hands. It looks priceless! You reach in with both hands to pick it up. However, as soon as you touch it your vision tints your environment to a light blue and you can no longer move. The only thing you can do is look around the room without moving your head. As you look around the room, blue spectral spirits erupt into laughter. 'I told you he was gonna touch it!' It looks like you figured out why there are so many skeletons in this area......YOU WILL DIE SOON"
 
 let m21 = "You bolt out from behind a bookcase and past the entrance arch. You look behind you to see if the person is still behind the desk. You are astounded to see that they are only ten feet away from you. The person's eyes glow an intense red as they lunge for you while screaming in a strange metallic voice: YOU WILL NOT BE STEALING PROPERTY FROM THE COMPENDIUM! It dawns upon you that this thing is clearly not human and is some sort of machine. The mechanical person manages to tackle you and pin you down. It places its hands on your chest and sends a powerful electrical current through you, frying your insides. Your heart stops beating......YOU DIED"
 
@@ -79,6 +83,8 @@ function handler1() {
     button1.textContent = "Walk down the left corridor";
     message = m2;
     chapter = 2;
+    document.getElementById("nightsound").pause();
+    document.getElementById("stairsound").play();
     writeResults();
   } else if (button1.textContent === "Take me to the most valuable artifact in the dungeon") {
     hideAll();
@@ -107,6 +113,8 @@ function handler1() {
         button4.textContent = "Offer Dog Toy (???)";
         message = m3;
         chapter = 3;
+        document.getElementById("stairsound").pause();
+        document.getElementById("knifesound").play();
         writeResults();
 
       } else if (chapter == 3) {
@@ -118,11 +126,15 @@ function handler1() {
           button4.textContent = "Turn around";
           message = m4;
           chapter = 4;
+          document.getElementById("knifesound").pause();
+          document.getElementById("swordsound").play();
           writeResults();
         } else if (chapter == 4){
             console.log("chapter4button1clicked");
             hideAll();
             message = m5;
+            document.getElementById("swordsound").pause();
+            document.getElementById("crimsondoorsound").play();
             writeResults();
   }
 }
@@ -156,10 +168,16 @@ function handler2() {
         if (survivalChance <= 10) {
       message = m8;
       document.getElementById('button2').style.visibility = 'hidden';
+      document.getElementById("metaldoorsound").pause();
+      document.getElementById("gearsound").pause();
+      document.getElementById("armorbreaksound").play();
       writeResults();
     } else {
       document.getElementById('button2').style.visibility = 'hidden';
       message = m9;
+      document.getElementById("metaldoorsound").pause();
+      document.getElementById("gearsound").pause();
+      document.getElementById("screamsound").play();
       writeResults();
     }
     } else if (button2.textContent === "Go through the metal door") {
@@ -168,6 +186,9 @@ function handler2() {
         document.getElementById('button3').style.visibility = 'hidden';
         document.getElementById('button4').style.visibility = 'hidden';
         button2.textContent = "Power Through (50% Chance of Success)"
+        document.getElementById("swordsound").pause();
+        document.getElementById("metaldoorsound").play();
+        document.getElementById("gearsound").play();
         writeResults();
       } else if (chapter == 2) {
           console.log("chapter2button2clicked");
@@ -196,6 +217,8 @@ function handler2() {
     }  else if (button2.textContent = "Offer Gold (Greed)") {
       message = m6;
       hideAll();
+      document.getElementById("knifesound").pause();
+      document.getElementById("coinssound").play();
       writeResults();
     } else if (chapter == 3) {
         console.log("chapter3button2clicked");
@@ -260,6 +283,12 @@ function handler4() {
   } else if (button4.textContent === "Search backpack") {
     hideAll();
     message = m20;
+    document.getElementById("stairsound").pause();
+    document.getElementById("openbackpacksound").play();
+    document.getElementById("modemsound").play();
+    setTimeout(function(){
+      document.getElementById("laughtersound").play();
+    }, 13000)
     writeResults();
   } else if (button4.textContent === "Turn around") {
     hideAll();
@@ -268,6 +297,11 @@ function handler4() {
   } else if (button4.textContent === "Offer Dog Toy (???)") {
     hideAll();
     message = m10;
+    document.getElementById("knifesound").pause();
+    document.getElementById("squeakytoysound").play();
+    setTimeout(function(){
+      document.getElementById("dingsound").play();
+    }, 3000)
     writeResults();
   } else if (chapter == 2) {
         console.log("chapter2button4clicked");
@@ -314,7 +348,3 @@ function showAll() {
 
 hideAll();
 button1.style.display = "block";
-
-window.onload = function() {
-  document.getElementById("nightsound").play();
-}
